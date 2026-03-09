@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pahariya Fitness Center – Best Gym Varanasi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     CSS VARIABLES & RESET
+  ============================================================ */
+  :root {
+    --black:   #0a0a0a;
+    --dark:    #111111;
+    --card:    #161616;
+    --border:  #252525;
+    --red:     #e8222e;
+    --red2:    #ff3d46;
+    --gold:    #f5c518;
+    --white:   #f5f5f5;
+    --muted:   #8a8a8a;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-cond:    'Barlow Condensed', sans-serif;
+    --font-body:    'Barlow', sans-serif;
+    --radius: 6px;
+    --transition: 0.28s cubic-bezier(0.4,0,0.2,1);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+  /* ============================================================
+     SCROLLBAR
+  ============================================================ */
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: var(--dark); }
+  ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 3px; }
+
+  /* ============================================================
+     UTILITY
+  ============================================================ */
+  .container { width: min(1180px, 92%); margin-inline: auto; }
+  .section-label {
+    display: inline-block;
+    font-family: var(--font-cond);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--white);
+  }
+  .section-sub {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 520px;
+    margin-top: 0.75rem;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--red);
+    color: #fff;
+    font-family: var(--font-cond);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.75rem 2rem;
+    border-radius: var(--radius);
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.08);
+    opacity: 0;
+    transition: opacity var(--transition);
+  }
+  .btn-primary:hover { background: var(--red2); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(232,34,46,0.4); }
+  .btn-primary:hover::after { opacity: 1; }
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: var(--white);
+    font-family: var(--font-cond);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.72rem 1.8rem;
+    border-radius: var(--radius);
+    border: 1.5px solid rgba(245,245,245,0.3);
+    transition: border-color var(--transition), background var(--transition), transform var(--transition);
+  }
+  .btn-outline:hover { border-color: var(--red); background: rgba(232,34,46,0.08); transform: translateY(-2px); }
+
+  /* ============================================================
+     HEADER / NAV
+  ============================================================ */
+  #header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 900;
+    padding: 0.75rem 0;
+    transition: background 0.3s, backdrop-filter 0.3s, box-shadow 0.3s;
+  }
+  #header.scrolled {
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 1px 0 var(--border);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+  .nav-logo img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid var(--red);
+    object-fit: cover;
+  }
+  .nav-logo-text { line-height: 1.1; }
+  .nav-logo-text .name {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    letter-spacing: 0.06em;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+  .nav-logo-text .tag {
+    font-family: var(--font-cond);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--red);
+    text-transform: uppercase;
+  }
+  nav ul {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+  nav a {
+    font-family: var(--font-cond);
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: color var(--transition);
+    position: relative;
+  }
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0;
+    width: 0; height: 1.5px;
+    background: var(--red);
+    transition: width var(--transition);
+  }
+  nav a:hover { color: var(--white); }
+  nav a:hover::after { width: 100%; }
+  .nav-cta { display: flex; align-items: center; gap: 0.75rem; }
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    background: rgba(10,10,10,0.97);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 5%;
+    gap: 0.25rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: var(--font-cond);
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: color var(--transition);
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--red); }
+
+  /* ============================================================
+     HERO
+  ============================================================ */
+  #hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://i.ibb.co/YB3N2qYb/hero.jpg');
+    background-size: cover;
+    background-position: center 25%;
+    z-index: 0;
+    transform: scale(1.03);
+    transition: transform 8s ease-out;
+  }
+  .hero-bg.loaded { transform: scale(1); }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(10,10,10,0.95) 0%,
+      rgba(10,10,10,0.55) 40%,
+      rgba(10,10,10,0.2) 70%,
+      transparent 100%
+    );
+    z-index: 1;
+  }
+  .hero-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    pointer-events: none;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    padding: 0 0 5rem;
+    width: 100%;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-cond);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 1rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1.5px;
+    background: var(--red);
+  }
+  .hero-eyebrow::after {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1.5px;
+    background: var(--red);
+  }
+  .hero-heading {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 14vw, 10rem);
+    line-height: 0.88;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+  }
+  .hero-heading .accent { color: var(--red); }
+  .hero-sub {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: rgba(245,245,245,0.65);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    margin-inline: auto;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+  .hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(245,245,245,0.1);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    color: var(--red);
+    line-height: 1;
+    display: block;
+  }
+  .stat-label {
+    font-family: var(--font-cond);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ============================================================
+     MARQUEE STRIP
+  ============================================================ */
+  .marquee-strip {
+    background: var(--red);
+    overflow: hidden;
+    padding: 0.7rem 0;
+    position: relative;
+    z-index: 10;
+  }
+  .marquee-track {
+    display: flex;
+    gap: 2.5rem;
+    animation: marquee 22s linear infinite;
+    width: max-content;
+    will-change: transform;
+  }
+  .marquee-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-cond);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #fff;
+    white-space: nowrap;
+  }
+  .marquee-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.5); }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ============================================================
+     MEMBERSHIP CAROUSEL
+  ============================================================ */
+  #membership {
+    padding: 6rem 0;
+    background: var(--dark);
+    position: relative;
+    overflow: hidden;
+  }
+  #membership::before {
+    content: 'PLANS';
+    position: absolute;
+    top: -2rem;
+    right: -1rem;
+    font-family: var(--font-display);
+    font-size: clamp(6rem, 20vw, 14rem);
+    color: rgba(232,34,46,0.04);
+    letter-spacing: 0.1em;
+    user-select: none;
+    pointer-events: none;
+    line-height: 1;
+  }
+  .membership-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .carousel-controls { display: flex; gap: 0.5rem; }
+  .carousel-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.1rem;
+    background: var(--card);
+    transition: background var(--transition), border-color var(--transition), transform var(--transition);
+  }
+  .carousel-btn:hover { background: var(--red); border-color: var(--red); transform: scale(1.05); }
+  .carousel-wrap {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 1rem;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+    cursor: grab;
+  }
+  .carousel-track::-webkit-scrollbar { display: none; }
+  .carousel-track:active { cursor: grabbing; }
+  .plan-card {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 2rem 1.75rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+  }
+  .plan-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--border);
+    transition: background var(--transition);
+  }
+  .plan-card:hover { transform: translateY(-6px); border-color: rgba(232,34,46,0.4); box-shadow: 0 16px 48px rgba(0,0,0,0.5); }
+  .plan-card:hover::before { background: var(--red); }
+  .plan-card.featured {
+    border-color: var(--red);
+    background: linear-gradient(145deg, #1a0a0b, var(--card));
+  }
+  .plan-card.featured::before { background: var(--red); }
+  .plan-badge {
+    display: inline-block;
+    background: var(--red);
+    color: #fff;
+    font-family: var(--font-cond);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 3px;
+    margin-bottom: 1.25rem;
+  }
+  .plan-name {
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+  .plan-price-wrap { margin-bottom: 1.5rem; }
+  .plan-price {
+    font-family: var(--font-display);
+    font-size: 3.2rem;
+    color: var(--red);
+    line-height: 1;
+    letter-spacing: 0.02em;
+  }
+  .plan-period {
+    font-family: var(--font-cond);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .plan-perks {
+    list-style: none;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .plan-perks li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.88rem;
+    color: rgba(245,245,245,0.7);
+  }
+  .plan-perks li::before {
+    content: '✓';
+    color: var(--red);
+    font-weight: 700;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+  .plan-cta {
+    width: 100%;
+    padding: 0.85rem;
+    background: var(--red);
+    color: #fff;
+    font-family: var(--font-cond);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    border-radius: var(--radius);
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  }
+  .plan-cta:hover { background: var(--red2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,34,46,0.4); }
+
+  /* ============================================================
+     WHY US
+  ============================================================ */
+  #why-us {
+    padding: 6rem 0;
+    background: var(--black);
+    position: relative;
+    overflow: hidden;
+  }
+  #why-us::after {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,34,46,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .why-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 2rem 1.75rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+  }
+  .why-card:hover { transform: translateY(-5px); border-color: rgba(232,34,46,0.35); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+  .why-icon {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    display: block;
+    filter: drop-shadow(0 0 8px rgba(232,34,46,0.4));
+  }
+  .why-title {
+    font-family: var(--font-cond);
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+  .why-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+
+  /* ============================================================
+     GALLERY
+  ============================================================ */
+  #gallery {
+    padding: 6rem 0;
+    background: var(--dark);
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 280px 280px;
+    gap: 0.75rem;
+    margin-top: 2.5rem;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .gallery-item {
+    overflow: hidden;
+    position: relative;
+  }
+  .gallery-item:first-child {
+    grid-row: 1 / 3;
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .gallery-item:hover img { transform: scale(1.07); }
+  .gallery-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10,10,10,0.55), transparent 50%);
+    opacity: 0;
+    transition: opacity var(--transition);
+  }
+  .gallery-item:hover::after { opacity: 1; }
+
+  /* ============================================================
+     REVIEWS
+  ============================================================ */
+  #reviews {
+    padding: 6rem 0;
+    background: var(--black);
+  }
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .review-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.75rem;
+    transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+  .review-card::before {
+    content: '"';
+    position: absolute;
+    top: -0.5rem;
+    right: 1.2rem;
+    font-family: var(--font-display);
+    font-size: 7rem;
+    color: rgba(232,34,46,0.07);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .review-card:hover { transform: translateY(-5px); border-color: rgba(232,34,46,0.3); box-shadow: 0 14px 42px rgba(0,0,0,0.45); }
+  .review-head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .review-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--red);
+    flex-shrink: 0;
+  }
+  .review-meta .client-name {
+    font-family: var(--font-cond);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  .review-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 0.1em; margin-top: 0.1rem; }
+  .review-text { font-size: 0.875rem; color: rgba(245,245,245,0.65); line-height: 1.7; font-style: italic; }
+
+  /* ============================================================
+     CONTACT / CTA STRIP
+  ============================================================ */
+  #contact-strip {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #160508 0%, var(--dark) 100%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .contact-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-cond);
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(245,245,245,0.75);
+    letter-spacing: 0.06em;
+  }
+  .contact-detail .icon { font-size: 1.3rem; }
+  .contact-detail a:hover { color: var(--red); }
+
+  /* ============================================================
+     FOOTER
+  ============================================================ */
+  footer {
+    background: var(--dark);
+    border-top: 1px solid var(--border);
+    padding: 3rem 0 1.5rem;
+  }
+  .footer-inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+  .footer-brand .name {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+  .footer-brand .tagline {
+    font-family: var(--font-cond);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-top: 0.2rem;
+  }
+  .footer-brand p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    max-width: 260px;
+    margin-top: 0.75rem;
+    line-height: 1.6;
+  }
+  .footer-links h4 {
+    font-family: var(--font-cond);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .footer-links a {
+    font-size: 0.875rem;
+    color: rgba(245,245,245,0.55);
+    transition: color var(--transition);
+  }
+  .footer-links a:hover { color: var(--red); }
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .footer-bottom p { font-size: 0.78rem; color: var(--muted); }
+  .footer-bottom span { color: var(--red); }
+
+  /* ============================================================
+     FLOATING BUTTONS
+  ============================================================ */
+  .floats {
+    position: fixed;
+    bottom: 1.75rem;
+    right: 1.75rem;
+    z-index: 800;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+  }
+  .float-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    transition: transform var(--transition), box-shadow var(--transition);
+    position: relative;
+  }
+  .float-btn:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(0,0,0,0.6); }
+  .float-wa { background: #25D366; color: #fff; }
+  .float-cart { background: var(--red); color: #fff; }
+  .cart-count {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--gold);
+    color: var(--black);
+    font-family: var(--font-cond);
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+  }
+  .cart-count.visible { display: flex; }
+
+  /* ============================================================
+     CART MODAL
+  ============================================================ */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn 0.2s ease;
+  }
+  .overlay.open { display: flex; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .modal {
+    background: var(--dark);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    width: min(520px, 100%);
+    max-height: 90svh;
+    overflow-y: auto;
+    padding: 2rem;
+    position: relative;
+    animation: slideUp 0.28s ease;
+  }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .modal-close {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: var(--border);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: background var(--transition);
+  }
+  .modal-close:hover { background: var(--red); }
+  .modal h2 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+  .cart-empty { text-align: center; padding: 2rem 0; color: var(--muted); font-size: 0.9rem; }
+  .cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .cart-item:last-of-type { border-bottom: none; }
+  .cart-item-name {
+    font-family: var(--font-cond);
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .cart-item-price { font-family: var(--font-display); font-size: 1.2rem; color: var(--red); }
+  .cart-remove {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: rgba(232,34,46,0.12);
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    transition: background var(--transition);
+    flex-shrink: 0;
+  }
+  .cart-remove:hover { background: var(--red); color: #fff; }
+  .cart-total-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 0 0;
+    margin-top: 0.5rem;
+    border-top: 1px solid var(--border);
+  }
+  .cart-total-label { font-family: var(--font-cond); font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+  .cart-total-amount { font-family: var(--font-display); font-size: 2rem; color: var(--white); }
+  .cart-checkout-btn {
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  /* ============================================================
+     BOOKING FORM MODAL
+  ============================================================ */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+  .form-group label {
+    font-family: var(--font-cond);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    background: var(--black);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color var(--transition);
+  }
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus { border-color: var(--red); }
+  .form-group textarea { resize: vertical; min-height: 80px; }
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(138,138,138,0.5); }
+  .form-order-summary {
+    background: var(--black);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .form-order-summary .summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .form-order-summary .summary-row:last-child { border-bottom: none; font-weight: 700; color: var(--white); }
+  .form-order-summary .summary-row .s-name { font-family: var(--font-cond); text-transform: uppercase; letter-spacing: 0.06em; }
+  .form-order-summary .summary-row .s-price { color: var(--red); font-family: var(--font-display); font-size: 1rem; }
+
+  /* ============================================================
+     CONFIRMATION
+  ============================================================ */
+  .confirm-box { text-align: center; padding: 1rem 0; }
+  .confirm-icon { font-size: 3.5rem; margin-bottom: 1rem; display: block; }
+  .confirm-box h3 { font-family: var(--font-display); font-size: 1.6rem; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .confirm-box p { font-size: 0.9rem; color: var(--muted); max-width: 340px; margin: 0 auto 1.5rem; }
+  .confirm-box strong { color: var(--white); }
+  .wa-confirm-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #25D366;
+    color: #fff;
+    font-family: var(--font-cond);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.8rem 2rem;
+    border-radius: var(--radius);
+    transition: background var(--transition), transform var(--transition);
+  }
+  .wa-confirm-btn:hover { background: #1ebe5d; transform: translateY(-2px); }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 900px) {
+    .gallery-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 220px 220px 220px;
+    }
+    .gallery-item:first-child { grid-row: 1; grid-column: 1 / 3; }
+    .reviews-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    nav ul, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .plan-card { flex: 0 0 260px; }
+    .contact-inner { flex-direction: column; gap: 1rem; align-items: flex-start; }
+    .footer-inner { flex-direction: column; }
+  }
+  @media (max-width: 520px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, 200px);
+    }
+    .gallery-item:first-child { grid-row: 1; grid-column: 1; }
+    .hero-stats { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+============================================================ -->
+<header id="header">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <img src="https://i.ibb.co/rR4drtwZ/logo.jpg" alt="Pahariya Fitness Center Logo" loading="lazy">
+        <div class="nav-logo-text">
+          <div class="name">Pahariya Fitness</div>
+          <div class="tag">Best Gym Varanasi</div>
+        </div>
+      </a>
+
+      <nav>
+        <ul>
+          <li><a href="#membership">Plans</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact-strip">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <button class="btn-primary" onclick="openBooking()">Book Now</button>
+      </div>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#membership" onclick="closeMenu()">Plans</a>
+    <a href="#why-us" onclick="closeMenu()">Why Us</a>
+    <a href="#gallery" onclick="closeMenu()">Gallery</a>
+    <a href="#reviews" onclick="closeMenu()">Reviews</a>
+    <a href="#contact-strip" onclick="closeMenu()">Contact</a>
+    <a href="#" onclick="openBooking(); closeMenu();" style="color:var(--red);">Book Appointment</a>
+  </div>
+</header>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-noise"></div>
+  <div class="hero-content container">
+    <div class="hero-eyebrow">Varanasi's Premier Fitness Destination</div>
+    <h1 class="hero-heading">
+      Join<br><span class="accent">Now</span>
+    </h1>
+    <p class="hero-sub">Transform your body. Elevate your life. Train with Varanasi's best coaches on modern equipment.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="openBooking()">📅 Book Appointment</button>
+      <a href="#membership" class="btn-outline">View Plans</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><span class="stat-num">500+</span><span class="stat-label">Happy Members</span></div>
+      <div class="stat-item"><span class="stat-num">5+</span><span class="stat-label">Expert Trainers</span></div>
+      <div class="stat-item"><span class="stat-num">3+</span><span class="stat-label">Years Strong</span></div>
+      <div class="stat-item"><span class="stat-num">6</span><span class="stat-label">Days a Week</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MARQUEE
+============================================================ -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack">
+    <!-- repeated twice for infinite loop -->
+    <span class="marquee-item"><span class="marquee-dot"></span>Modern Equipment</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Expert Trainers</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Affordable Plans</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Clean Facility</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Best Gym Varanasi</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Flexible Timings</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Personal Training</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Modern Equipment</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Expert Trainers</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Affordable Plans</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Clean Facility</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Best Gym Varanasi</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Flexible Timings</span>
+    <span class="marquee-item"><span class="marquee-dot"></span>Personal Training</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     MEMBERSHIP
+============================================================ -->
+<section id="membership">
+  <div class="container">
+    <div class="membership-header">
+      <div>
+        <span class="section-label">Membership Plans</span>
+        <h2 class="section-title">Choose Your<br>Plan</h2>
+        <p class="section-sub">Flexible memberships designed for every goal and budget.</p>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-btn" id="prevBtn" aria-label="Previous" onclick="scrollCarousel(-1)">&#8592;</button>
+        <button class="carousel-btn" id="nextBtn" aria-label="Next" onclick="scrollCarousel(1)">&#8594;</button>
+      </div>
+    </div>
+
+    <div class="carousel-wrap">
+      <div class="carousel-track" id="carouselTrack">
+
+        <div class="plan-card">
+          <span class="plan-badge">Starter</span>
+          <div class="plan-name">Weekly</div>
+          <div class="plan-price-wrap">
+            <div class="plan-price">₹1,000</div>
+            <div class="plan-period">per week</div>
+          </div>
+          <ul class="plan-perks">
+            <li>Full gym access (7 days)</li>
+            <li>Cardio & weight zones</li>
+            <li>Trainer guidance</li>
+            <li>Locker access</li>
+          </ul>
+          <button class="plan-cta" onclick="addToCart('Weekly Plan','₹1,000',1000)">Add to Cart</button>
+        </div>
+
+        <div class="plan-card featured">
+          <span class="plan-badge">Most Popular</span>
+          <div class="plan-name">Monthly</div>
+          <div class="plan-price-wrap">
+            <div class="plan-price">₹2,000</div>
+            <div class="plan-period">per month</div>
+          </div>
+          <ul class="plan-perks">
+            <li>Full gym access (30 days)</li>
+            <li>All equipment zones</li>
+            <li>Dedicated trainer</li>
+            <li>Diet guidance</li>
+            <li>Locker + Parking</li>
+          </ul>
+          <button class="plan-cta" onclick="addToCart('Monthly Plan','₹2,000',2000)">Add to Cart</button>
+        </div>
+
+        <div class="plan-card">
+          <span class="plan-badge">Best Value</span>
+          <div class="plan-name">Yearly</div>
+          <div class="plan-price-wrap">
+            <div class="plan-price">₹6,000</div>
+            <div class="plan-period">per year</div>
+          </div>
+          <ul class="plan-perks">
+            <li>Unlimited access (365 days)</li>
+            <li>All premium equipment</li>
+            <li>Personal trainer included</li>
+            <li>Diet + nutrition plan</li>
+            <li>Guest passes (2/month)</li>
+            <li>Priority locker</li>
+          </ul>
+          <button class="plan-cta" onclick="addToCart('Yearly Plan','₹6,000',6000)">Add to Cart</button>
+        </div>
+
+        <div class="plan-card" style="background:linear-gradient(145deg,#14100a,var(--card)); border-color: rgba(245,197,24,0.35);">
+          <span class="plan-badge" style="background:var(--gold); color: var(--black);">🔥 Limited Time</span>
+          <div class="plan-name" style="color:var(--gold);">Special Offer</div>
+          <div class="plan-price-wrap">
+            <div class="plan-price" style="color:var(--gold);">Contact Us</div>
+            <div class="plan-period">exclusive deal</div>
+          </div>
+          <ul class="plan-perks">
+            <li>Custom tailored package</li>
+            <li>Couple / Group discounts</li>
+            <li>Corporate memberships</li>
+            <li>Student special rates</li>
+            <li>Combo diet + fitness</li>
+          </ul>
+          <button class="plan-cta" style="background:var(--gold); color:var(--black);" onclick="addToCart('Special Offer (Custom)','Contact for price',0)">Enquire Now</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHY US
+============================================================ -->
+<section id="why-us">
+  <div class="container">
+    <span class="section-label">Why Choose Us</span>
+    <h2 class="section-title">The Pahariya<br>Advantage</h2>
+    <p class="section-sub">Everything you need to achieve your fitness goals — under one roof in Varanasi.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <span class="why-icon">🏋️</span>
+        <div class="why-title">Modern Equipment</div>
+        <p class="why-desc">State-of-the-art machines and free weights for every type of training — strength, cardio, HIIT, and more.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🧹</span>
+        <div class="why-title">Spotless Facility</div>
+        <p class="why-desc">We maintain the highest hygiene standards. Every machine, mat, and locker is cleaned and sanitized daily.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🎯</span>
+        <div class="why-title">Expert Trainers</div>
+        <p class="why-desc">Certified coaches who guide your form, design custom programs, and keep you accountable every session.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">💰</span>
+        <div class="why-title">Affordable Plans</div>
+        <p class="why-desc">Premium fitness doesn't have to be expensive. We offer weekly, monthly, and yearly plans that fit every budget.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🕐</span>
+        <div class="why-title">Flexible Timings</div>
+        <p class="why-desc">Early morning to late evening — we're open 6 days a week so you can work out when it suits you best.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🌟</span>
+        <div class="why-title">Prime Location</div>
+        <p class="why-desc">Conveniently located in the heart of Varanasi with easy access, ample parking, and a welcoming community.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GALLERY
+============================================================ -->
+<section id="gallery">
+  <div class="container">
+    <span class="section-label">Inside Our Gym</span>
+    <h2 class="section-title">Tour The<br>Facility</h2>
+    <p class="section-sub">Clean spaces, premium equipment, and an atmosphere built for performance.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://i.ibb.co/j9RM0R5P/img-1.jpg" alt="Pahariya Fitness Center main gym floor" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.ibb.co/vxxkrRdP/img-2.jpg" alt="Pahariya Fitness Center equipment area" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.ibb.co/Ps1qBBGM/img-3.jpg" alt="Pahariya Fitness Center training zone" loading="lazy">
+      </div>
+      <div class="gallery-item">
+        <img src="https://i.ibb.co/LHpjfjn/img-4.jpg" alt="Pahariya Fitness Center cardio section" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     REVIEWS
+============================================================ -->
+<section id="reviews">
+  <div class="container">
+    <span class="section-label">Google Reviews</span>
+    <h2 class="section-title">What Our<br>Members Say</h2>
+    <p class="section-sub">Real results, real people. Here's what our community says about training with us.</p>
+    <div class="reviews-grid">
+
+      <div class="review-card">
+        <div class="review-head">
+          <img class="review-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=RahulSingh&backgroundColor=b6e3f4" alt="Rahul Singh">
+          <div class="review-meta">
+            <div class="client-name">Rahul Singh</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="review-text">"One of the best gyms in Varanasi. The equipment is modern and the trainers are extremely supportive. The environment really motivates you to push harder every day."</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-head">
+          <img class="review-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=AmanMishra&backgroundColor=c0aede" alt="Aman Mishra">
+          <div class="review-meta">
+            <div class="client-name">Aman Mishra</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="review-text">"Very clean and well-maintained gym. The atmosphere is energetic and the trainers guide you properly for every workout. Highly recommended for serious fitness goals."</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-head">
+          <img class="review-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=PriyaVerma&backgroundColor=ffd5dc" alt="Priya Verma">
+          <div class="review-meta">
+            <div class="client-name">Priya Verma</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="review-text">"I joined recently and I'm already loving the experience. The trainers are friendly and the workout space feels very comfortable and premium."</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-head">
+          <img class="review-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=SaurabhPatel&backgroundColor=d1d4f9" alt="Saurabh Patel">
+          <div class="review-meta">
+            <div class="client-name">Saurabh Patel</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+        </div>
+        <p class="review-text">"Amazing gym with great facilities and professional trainers. Perfect place for anyone who wants to transform their fitness seriously."</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT STRIP
+============================================================ -->
+<div id="contact-strip">
+  <div class="container">
+    <div class="contact-inner">
+      <div>
+        <span class="section-label">Get In Touch</span>
+        <h2 class="section-title" style="font-size:clamp(1.8rem,4vw,2.8rem);">Ready to Start?</h2>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:0.75rem;">
+        <div class="contact-detail">
+          <span class="icon">📍</span>
+          <span>Varanasi, Uttar Pradesh</span>
+        </div>
+        <div class="contact-detail">
+          <span class="icon">📞</span>
+          <a href="tel:8299856640">8299856640</a>
+        </div>
+        <div class="contact-detail">
+          <span class="icon">✉️</span>
+          <a href="mailto:shreyashseth2007@gmail.com">shreyashseth2007@gmail.com</a>
+        </div>
+      </div>
+      <button class="btn-primary" onclick="openBooking()">📅 Book Appointment</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="name">Pahariya Fitness</div>
+        <div class="tagline">Best Gym Varanasi</div>
+        <p>Your transformation starts here. Join Varanasi's most trusted fitness community today.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#membership">Membership Plans</a></li>
+          <li><a href="#why-us">Why Choose Us</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:8299856640">📞 8299856640</a></li>
+          <li><a href="https://wa.me/8299856640" target="_blank">💬 WhatsApp Us</a></li>
+          <li><a href="mailto:shreyashseth2007@gmail.com">✉️ Email Us</a></li>
+          <li><a href="#">📍 Varanasi, UP</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 <span>Pahariya Fitness Center</span>. All rights reserved.</p>
+      <p style="font-size:0.75rem; color: var(--muted);">Varanasi, Uttar Pradesh</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     FLOATING BUTTONS
+============================================================ -->
+<div class="floats">
+  <button class="float-btn float-cart" onclick="openCart()" aria-label="Open Cart">
+    🛒
+    <span class="cart-count" id="cartCount">0</span>
+  </button>
+  <a class="float-btn float-wa" href="https://wa.me/8299856640" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+</div>
+
+<!-- ============================================================
+     CART MODAL
+============================================================ -->
+<div class="overlay" id="cartOverlay" onclick="handleOverlayClick(event,'cartOverlay')">
+  <div class="modal" id="cartModal">
+    <button class="modal-close" onclick="closeCart()">✕</button>
+    <h2>🛒 Your Cart</h2>
+    <div id="cartBody">
+      <div class="cart-empty">Your cart is empty. Add a membership plan to get started!</div>
+    </div>
+    <div id="cartFooter" style="display:none;">
+      <div class="cart-total-row">
+        <span class="cart-total-label">Grand Total</span>
+        <span class="cart-total-amount" id="grandTotal">₹0</span>
+      </div>
+      <button class="btn-primary cart-checkout-btn" onclick="proceedCheckout()">Proceed to Book Appointment →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     BOOKING FORM MODAL
+============================================================ -->
+<div class="overlay" id="bookingOverlay" onclick="handleOverlayClick(event,'bookingOverlay')">
+  <div class="modal" id="bookingModal" style="width:min(580px,100%);">
+    <button class="modal-close" onclick="closeBooking()">✕</button>
+    <h2>📅 Book Appointment</h2>
+
+    <!-- Hidden summary for email -->
+    <div class="form-order-summary" id="formOrderSummary">
+      <div style="font-family:var(--font-cond);font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;">Your Selected Plans</div>
+      <div id="summaryRows"></div>
+    </div>
+
+    <form id="bookingForm" action="https://formspree.io/f/mpqywwra" method="POST" onsubmit="handleSubmit(event)">
+      <!-- Hidden fields compiled by JS -->
+      <input type="hidden" name="_subject" value="New Appointment - Pahariya Fitness Center">
+      <input type="hidden" name="order_summary" id="hiddenOrderSummary">
+      <input type="hidden" name="grand_total" id="hiddenGrandTotal">
+
+      <div class="form-group">
+        <label for="custName">Full Name *</label>
+        <input type="text" id="custName" name="customer_name" placeholder="Enter your full name" required>
+      </div>
+      <div class="form-group">
+        <label for="custPhone">Phone Number *</label>
+        <input type="tel" id="custPhone" name="phone_number" placeholder="Enter your phone number" required>
+      </div>
+      <div class="form-group">
+        <label for="custAddress">Address *</label>
+        <input type="text" id="custAddress" name="address" placeholder="Your area / locality in Varanasi" required>
+      </div>
+      <div class="form-group">
+        <label for="custDatetime">Preferred Date & Time</label>
+        <input type="datetime-local" id="custDatetime" name="preferred_datetime">
+      </div>
+      <div class="form-group">
+        <label for="custNote">Special Instructions</label>
+        <textarea id="custNote" name="special_instructions" placeholder="Any health conditions, goals, or questions..."></textarea>
+      </div>
+
+      <button type="submit" class="btn-primary" style="width:100%; justify-content:center; padding:1rem;">
+        ✅ Confirm Appointment
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- ============================================================
+     CONFIRMATION MODAL
+============================================================ -->
+<div class="overlay" id="confirmOverlay">
+  <div class="modal" style="width:min(440px,100%);">
+    <div class="confirm-box">
+      <span class="confirm-icon">🎉</span>
+      <h3>Appointment Booked!</h3>
+      <p><strong>Pahariya Fitness Center</strong> will contact you on WhatsApp shortly to confirm your appointment.</p>
+      <a class="wa-confirm-btn" href="https://wa.me/8299856640" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Chat on WhatsApp
+      </a>
+      <button onclick="closeConfirm()" class="btn-outline" style="margin-top:1rem; width:100%; justify-content:center;">Close</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+  /* ---- HEADER SCROLL ---- */
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* ---- HERO BG ANIMATION ---- */
+  window.addEventListener('load', () => {
+    document.getElementById('heroBg').classList.add('loaded');
+  });
+
+  /* ---- HAMBURGER ---- */
+  function toggleMenu() {
+    const ham = document.getElementById('hamburger');
+    const menu = document.getElementById('mobileMenu');
+    ham.classList.toggle('open');
+    menu.classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('hamburger').classList.remove('open');
+    document.getElementById('mobileMenu').classList.remove('open');
+  }
+
+  /* ---- CAROUSEL ---- */
+  const track = document.getElementById('carouselTrack');
+  function scrollCarousel(dir) {
+    track.scrollBy({ left: dir * 320, behavior: 'smooth' });
+  }
+  // Drag to scroll
+  let isDown = false, startX, scrollLeft;
+  track.addEventListener('mousedown', e => { isDown = true; track.classList.add('active'); startX = e.pageX - track.offsetLeft; scrollLeft = track.scrollLeft; });
+  track.addEventListener('mouseleave', () => { isDown = false; });
+  track.addEventListener('mouseup', () => { isDown = false; });
+  track.addEventListener('mousemove', e => { if (!isDown) return; e.preventDefault(); const x = e.pageX - track.offsetLeft; track.scrollLeft = scrollLeft - (x - startX); });
+
+  /* ---- CART STATE ---- */
+  function loadCart() {
+    try { return JSON.parse(localStorage.getItem('pfc_cart') || '[]'); } catch { return []; }
+  }
+  function saveCart(cart) {
+    localStorage.setItem('pfc_cart', JSON.stringify(cart));
+  }
+  function updateCartBadge() {
+    const cart = loadCart();
+    const el = document.getElementById('cartCount');
+    const count = cart.length;
+    el.textContent = count;
+    el.classList.toggle('visible', count > 0);
+  }
+
+  function addToCart(name, priceStr, priceNum) {
+    const cart = loadCart();
+    const existing = cart.find(i => i.name === name);
+    if (existing) {
+      showToast(`${name} already in cart!`);
+      return;
+    }
+    cart.push({ name, priceStr, priceNum });
+    saveCart(cart);
+    updateCartBadge();
+    showToast(`✅ ${name} added to cart!`);
+  }
+
+  function removeFromCart(name) {
+    let cart = loadCart().filter(i => i.name !== name);
+    saveCart(cart);
+    updateCartBadge();
+    renderCart();
+  }
+
+  function renderCart() {
+    const cart = loadCart();
+    const body = document.getElementById('cartBody');
+    const footer = document.getElementById('cartFooter');
+    if (cart.length === 0) {
+      body.innerHTML = '<div class="cart-empty">Your cart is empty. Add a membership plan to get started!</div>';
+      footer.style.display = 'none';
+      return;
+    }
+    let total = 0;
+    let html = '';
+    cart.forEach(item => {
+      total += item.priceNum;
+      html += `
+        <div class="cart-item">
+          <div>
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-price">${item.priceStr}</div>
+          </div>
+          <button class="cart-remove" onclick="removeFromCart('${item.name.replace(/'/g, "\\'")}')">✕</button>
+        </div>`;
+    });
+    body.innerHTML = html;
+    document.getElementById('grandTotal').textContent = total > 0 ? '₹' + total.toLocaleString('en-IN') : 'As quoted';
+    footer.style.display = 'block';
+  }
+
+  /* ---- CART MODAL ---- */
+  function openCart() {
+    renderCart();
+    document.getElementById('cartOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeCart() {
+    document.getElementById('cartOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  /* ---- BOOKING MODAL ---- */
+  function openBooking() {
+    populateFormSummary();
+    document.getElementById('bookingOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeBooking() {
+    document.getElementById('bookingOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function populateFormSummary() {
+    const cart = loadCart();
+    const summaryEl = document.getElementById('summaryRows');
+    const hiddenSummary = document.getElementById('hiddenOrderSummary');
+    const hiddenTotal = document.getElementById('hiddenGrandTotal');
+
+    if (cart.length === 0) {
+      summaryEl.innerHTML = '<div style="font-size:0.82rem;color:var(--muted);">No plans selected — you can still book a visit!</div>';
+      hiddenSummary.value = 'No specific plan selected';
+      hiddenTotal.value = '0';
+      return;
+    }
+    let total = 0;
+    let summaryHtml = '';
+    let summaryText = '';
+    cart.forEach(item => {
+      total += item.priceNum;
+      summaryHtml += `<div class="summary-row"><span class="s-name">${item.name}</span><span class="s-price">${item.priceStr}</span></div>`;
+      summaryText += `${item.name}: ${item.priceStr} | `;
+    });
+    const totalStr = total > 0 ? '₹' + total.toLocaleString('en-IN') : 'As quoted';
+    summaryHtml += `<div class="summary-row"><span class="s-name" style="color:var(--white);">Grand Total</span><span class="s-price" style="color:var(--white);">${totalStr}</span></div>`;
+    summaryEl.innerHTML = summaryHtml;
+    hiddenSummary.value = summaryText.replace(/\| $/, '');
+    hiddenTotal.value = totalStr;
+  }
+
+  /* ---- FORM SUBMIT ---- */
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const form = document.getElementById('bookingForm');
+    const btn = form.querySelector('[type="submit"]');
+    btn.textContent = 'Submitting...';
+    btn.disabled = true;
+
+    try {
+      const data = new FormData(form);
+      const resp = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (resp.ok) {
+        saveCart([]);
+        updateCartBadge();
+        closeBooking();
+        closeCart();
+        document.getElementById('confirmOverlay').classList.add('open');
+        form.reset();
+      } else {
+        alert('Submission failed. Please try again or WhatsApp us directly at 8299856640.');
+      }
+    } catch {
+      alert('Network error. Please WhatsApp us at 8299856640 to book directly.');
+    }
+    btn.textContent = '✅ Confirm Appointment';
+    btn.disabled = false;
+  }
+
+  function proceedCheckout() {
+    closeCart();
+    openBooking();
+  }
+
+  /* ---- CONFIRM ---- */
+  function closeConfirm() {
+    document.getElementById('confirmOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  /* ---- OVERLAY CLICK OUTSIDE ---- */
+  function handleOverlayClick(e, id) {
+    if (e.target.id === id) {
+      document.getElementById(id).classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  /* ---- TOAST ---- */
+  function showToast(msg) {
+    let t = document.getElementById('toast');
+    if (!t) {
+      t = document.createElement('div');
+      t.id = 'toast';
+      t.style.cssText = `position:fixed;bottom:6rem;left:50%;transform:translateX(-50%) translateY(20px);background:var(--card);border:1px solid var(--border);color:var(--white);font-family:var(--font-cond);font-size:0.9rem;letter-spacing:0.06em;padding:0.75rem 1.5rem;border-radius:40px;z-index:9999;opacity:0;transition:all 0.3s ease;white-space:nowrap;box-shadow:0 4px 20px rgba(0,0,0,0.5);`;
+      document.body.appendChild(t);
+    }
+    t.textContent = msg;
+    t.style.opacity = '1';
+    t.style.transform = 'translateX(-50%) translateY(0)';
+    clearTimeout(t._timer);
+    t._timer = setTimeout(() => {
+      t.style.opacity = '0';
+      t.style.transform = 'translateX(-50%) translateY(20px)';
+    }, 2500);
+  }
+
+  /* ---- INIT ---- */
+  updateCartBadge();
+</script>
+
+</body>
+</html>
